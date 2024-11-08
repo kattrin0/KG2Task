@@ -37,8 +37,6 @@ public class Rasterization {
 
             for (int col = xLeft; col < xRight; col += 1) {
                 //System.out.println(".");
-                //double interpolation=Math.sqrt(Math.pow(col-xCenter,2)+Math.pow(y-yCenter,2))/Math.sqrt(Math.pow(a,2)+Math.pow(b,2)) ;
-
                 double distance;
                 double normalizedDistance;
                 if (width > height) {
@@ -49,8 +47,6 @@ public class Rasterization {
                 double maxDistance = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
 
                 //distance = Math.sqrt(Math.pow((col - xCenter), 2) + Math.pow((double) (row - yCenter), 2));
-                //if (b>=a){ maxDistance=b;}else{maxDistance=a;}
-
                 normalizedDistance = distance / maxDistance;
 
                 double r = centerColor.getRed() + normalizedDistance * (endColor.getRed() - centerColor.getRed());
@@ -58,8 +54,6 @@ public class Rasterization {
                 double blue = centerColor.getBlue() + normalizedDistance * (endColor.getBlue() - centerColor.getBlue());
 
                 pixelWriter.setColor(col, row, Color.color(r, g, blue));
-
-
             }
         }
     }
